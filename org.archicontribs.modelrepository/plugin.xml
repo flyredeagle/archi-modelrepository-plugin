@@ -68,6 +68,11 @@
             id="org.archicontribs.modelrepository.command.deleteModel"
             name="%command.name.11">
       </command>
+      <command
+            defaultHandler="org.archicontribs.modelrepository.actions.ImportLocalModelHandler"
+            id="org.archicontribs.modelrepository.command.importLocalModel"
+            name="Import Local Model to Workspace">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -149,6 +154,11 @@
             <command
                   commandId="org.archicontribs.modelrepository.command.createRepoFromModel"
                   icon="img/createRepository.png"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.archicontribs.modelrepository.command.importLocalModel"
+                  icon="img/add_obj.png"
                   style="push">
             </command>
             <command

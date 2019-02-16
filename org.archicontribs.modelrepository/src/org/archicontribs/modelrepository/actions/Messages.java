@@ -36,6 +36,10 @@ public class Messages extends NLS {
 
     public static String AddBranchAction_2;
 
+    public static String ImportLocalModelAction_0;
+    
+    public static String ImportLocalModelAction_1;
+
     public static String CloneModelAction_0;
 
     public static String CloneModelAction_2;

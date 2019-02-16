@@ -8,6 +8,7 @@ package org.archicontribs.modelrepository.views.repositories;
 import org.archicontribs.modelrepository.ModelRepositoryPlugin;
 import org.archicontribs.modelrepository.actions.AbortChangesAction;
 import org.archicontribs.modelrepository.actions.CloneModelAction;
+import org.archicontribs.modelrepository.actions.ImportLocalModelAction;
 import org.archicontribs.modelrepository.actions.CommitModelAction;
 import org.archicontribs.modelrepository.actions.DeleteModelAction;
 import org.archicontribs.modelrepository.actions.IGraficoModelAction;
@@ -80,7 +81,16 @@ implements IContextProvider, ITabbedPropertySheetPageContributor {
      */
     private IGraficoModelAction fActionClone;
     
+    /**
+     * Opens Local Archi Repo
+     */
     private IGraficoModelAction fActionOpen;
+    
+    /**
+     * Opens Local Git Repo
+     */
+    private IGraficoModelAction fActionImportLocal;
+    
     private IGraficoModelAction fActionRefresh;
     private IGraficoModelAction fActionDelete;
     
@@ -146,7 +156,9 @@ implements IContextProvider, ITabbedPropertySheetPageContributor {
      * Make local actions
      */
     private void makeActions() {
-        fActionClone = new CloneModelAction(getViewSite().getWorkbenchWindow());
+    	fActionClone = new CloneModelAction(getViewSite().getWorkbenchWindow());
+    	
+    	fActionImportLocal = new ImportLocalModelAction(getViewSite().getWorkbenchWindow());
         
         fActionOpen = new OpenModelAction(getViewSite().getWorkbenchWindow());
         fActionOpen.setEnabled(false);
@@ -259,6 +271,7 @@ implements IContextProvider, ITabbedPropertySheetPageContributor {
         manager.add(new Separator(IWorkbenchActionConstants.NEW_GROUP));
         
         manager.add(fActionClone);
+        manager.add(fActionImportLocal);
         manager.add(fActionDelete);
     }
     
@@ -307,6 +320,7 @@ implements IContextProvider, ITabbedPropertySheetPageContributor {
 
         if(isEmpty) {
             manager.add(fActionClone);
+            manager.add(fActionImportLocal);
         }
         else {
             manager.add(fActionOpen);

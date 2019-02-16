@@ -16,6 +16,14 @@ public class Messages extends NLS {
 
     public static String AddBranchDialog_6;
 
+    public static String ImportLocalModelInputDialog_0;
+
+    public static String ImportLocalModelInputDialog_1;
+
+    public static String ImportLocalModelInputDialog_2;
+
+    public static String ImportLocalModelInputDialog_3;
+
     public static String CloneInputDialog_0;
 
     public static String CloneInputDialog_1;
