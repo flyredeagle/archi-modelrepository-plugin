@@ -71,7 +71,7 @@
       <command
             defaultHandler="org.archicontribs.modelrepository.actions.ImportLocalModelHandler"
             id="org.archicontribs.modelrepository.command.importLocalModel"
-            name="Import Local Model to Workspace">
+            name="%command.name.12">
       </command>
    </extension>
    <extension
@@ -86,6 +86,11 @@
                   name="org.archicontribs.modelrepository.popup.start"
                   visible="true">
             </separator>
+            <command
+                  commandId="org.archicontribs.modelrepository.command.importLocalModel"
+                  icon="img/add_obj.png"
+                  style="push">
+            </command>
             <command
                   commandId="org.archicontribs.modelrepository.command.createRepoFromModel"
                   icon="img/createRepository.png"
@@ -225,6 +230,11 @@
             <command
                   commandId="org.archicontribs.modelrepository.command.createRepoFromModel"
                   icon="img/createRepository.png"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.archicontribs.modelrepository.command.importLocalModel"
+                  icon="img/add_obj.png"
                   style="push">
             </command>
             <separator

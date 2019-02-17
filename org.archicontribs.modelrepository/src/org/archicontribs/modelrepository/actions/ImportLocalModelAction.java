@@ -7,6 +7,7 @@ package org.archicontribs.modelrepository.actions;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.archicontribs.modelrepository.IModelRepositoryImages;
 import org.archicontribs.modelrepository.ModelRepositoryPlugin;
@@ -64,11 +65,24 @@ public class ImportLocalModelAction extends AbstractModelAction {
         }
         File localRepoFolder = new File(repoFilePath);
         if(!GraficoUtils.isGitRepository(localRepoFolder)) {
-        	MessageDialog.openError(fWindow.getShell(),
-                  Messages.ImportLocalModelAction_0,
-                  Messages.ImportLocalModelAction_1 + " " + localRepoFolder.getAbsolutePath()); 
+			MessageDialog.openError(fWindow.getShell(),
+	                  Messages.ImportLocalModelAction_0,
+	                  Messages.ImportLocalModelAction_1 + " " + localRepoFolder.getAbsolutePath() + 
+						Messages.ImportLocalModelAction_2); 
 
-          return;
+            return;
+        }else {
+        	// Check if it is one of the already open models
+        	List<IArchimateModel> models= IEditorModelManager.INSTANCE.getModels();
+        	for (IArchimateModel model : models) {
+        		if(model.getFile().getParentFile().getParentFile().getAbsolutePath().equals(localRepoFolder.getAbsolutePath())) {
+        			MessageDialog.openError(fWindow.getShell(),
+        	                  Messages.ImportLocalModelAction_0,
+        	                  Messages.ImportLocalModelAction_1 + " " + localRepoFolder.getAbsolutePath() + 
+        						" "+ Messages.ImportLocalModelAction_3 + " " + model.getName()); 
+        			return;
+        		} 
+        	}
         }
         setRepository(new ArchiRepository(localRepoFolder));
 
