@@ -206,4 +206,12 @@ public interface IArchiRepository extends IGraficoConstants {
      * @throws GitAPIException
      */
     public BranchStatus getBranchStatus() throws IOException, GitAPIException;
+
+    
+    /**
+     * @return The Tag Status
+     * @throws IOException
+     * @throws GitAPIException
+     */
+    TagStatus getTagStatus() throws IOException, GitAPIException;
 }

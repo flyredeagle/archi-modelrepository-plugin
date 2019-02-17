@@ -128,6 +128,8 @@ public class Messages extends NLS {
 
     public static String ShowInBranchesViewAction_0;
 
+    public static String ShowInTagsViewAction_0;
+
     public static String ShowInHistoryAction_0;
 
     public static String SwitchBranchAction_0;

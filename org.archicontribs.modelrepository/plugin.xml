@@ -68,6 +68,16 @@
             id="org.archicontribs.modelrepository.command.deleteModel"
             name="%command.name.11">
       </command>
+      <command
+            defaultHandler="org.archicontribs.modelrepository.actions.ShowTagsViewHandler"
+            id="org.archicontribs.modelrepository.command.showTagsView"
+            name="%command.name.12">
+      </command>
+      <command
+            defaultHandler="org.archicontribs.modelrepository.actions.ShowInTagsViewHandler"
+            id="org.archicontribs.modelrepository.command.showInTagsView"
+            name="%command.name.13">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -131,6 +141,11 @@
             </command>
             <command
                   commandId="org.archicontribs.modelrepository.command.showInBranchesView"
+                  icon="img/branches_obj.png"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.archicontribs.modelrepository.command.showInTagsView"
                   icon="img/branches_obj.png"
                   style="push">
             </command>
@@ -205,6 +220,11 @@
                   icon="img/branches_obj.png"
                   style="push">
             </command>
+            <command
+                  commandId="org.archicontribs.modelrepository.command.showTagsView"
+                  icon="img/branches_obj.png"
+                  style="push">
+            </command>
          </menu>
       </menuContribution>
       <menuContribution
@@ -260,6 +280,11 @@
                   icon="img/branches_obj.png"
                   style="push">
             </command>
+            <command
+                  commandId="org.archicontribs.modelrepository.command.showTagsView"
+                  icon="img/branches_obj.png"
+                  style="push">
+            </command>
          </toolbar>
       </menuContribution>
    </extension>
@@ -286,6 +311,13 @@
             name="%view.name"
             restorable="true">
       </view>
+      <view
+            class="org.archicontribs.modelrepository.views.tags.TagsView"
+            icon="img/branches_obj.png"
+            id="org.archicontribs.modelrepository.tagsView"
+            name="%tags_view"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
@@ -305,6 +337,12 @@
          </view>
          <view
                id="org.archicontribs.modelrepository.branchesView"
+               minimized="false"
+               relationship="stack"
+               relative="org.archicontribs.modelrepository.historyView">
+         </view>
+         <view
+               id="org.archicontribs.modelrepository.tagsView"
                minimized="false"
                relationship="stack"
                relative="org.archicontribs.modelrepository.historyView">

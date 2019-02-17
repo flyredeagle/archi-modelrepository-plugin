@@ -502,6 +502,11 @@ public class ArchiRepository implements IArchiRepository {
     public BranchStatus getBranchStatus() throws IOException, GitAPIException {
         return new BranchStatus(this);
     }
+
+    @Override
+    public TagStatus getTagStatus() throws IOException, GitAPIException {
+        return new TagStatus(this);
+    }
     
     private String getLatestChecksum() throws IOException {
         File checksumFile = new File(getLocalGitFolder(), "checksum"); //$NON-NLS-1$
